@@ -1,28 +1,3 @@
-"""
-=============================================================================
-TALLER: Algoritmo de Búsqueda BFS para la Resolución del Cubo Rubik
-Por: Guillermo Andres De Mendoza Corrales
-=============================================================================
-Descripción:
-    Implementa BFS Bidireccional para resolver el cubo de Rubik.
-    El BFS bidireccional busca simultáneamente desde el estado inicial
-    y desde el estado objetivo, encontrándose en el medio.
-    Esto reduce drásticamente el espacio de búsqueda:
-      - BFS simple:        O(b^d)     donde b=18 movimientos, d=profundidad
-      - BFS bidireccional: O(2 x b^(d/2)) — exponencialmente más pequeño
-
-Nomenclatura del taller:
-    X1R, X2R, X3R, X1L, X2L, X3L  (filas horizontales)
-    Y1U, Y2U, Y3U, Y1D, Y2D, Y3D  (columnas verticales)
-    Z1R, Z2R, Z3R, Z1L, Z2L, Z3L  (capas frontales)
-
-Representación:
-    6 caras x 9 stickers = lista de 6 listas de 9 enteros
-    Indices: 0=U(Arriba/Blanco), 1=F(Frente/Rojo), 2=R(Der/Azul),
-             3=B(Atras/Naranja), 4=L(Izq/Verde), 5=D(Abajo/Amarillo)
-=============================================================================
-"""
-
 from collections import deque
 import time
 
@@ -76,8 +51,8 @@ def rot_a(cara):
 
 
 # =============================================================================
-# SECCION 3: MOVIMIENTOS (18 en total, nomenclatura del taller)
-# Cada funcion retorna un NUEVO estado sin modificar el original.
+# SECCION 3: MOVIMIENTOS (18 en total)
+# Cada funcion retorna un nuevo estado sin modificar el original.
 # =============================================================================
 
 def aplicar_movimiento(cubo, nombre):
@@ -207,7 +182,7 @@ def aplicar_movimiento(cubo, nombre):
     return c
 
 
-# Los 18 movimientos del taller
+# Los 18 movimientos 
 TODOS_MOVIMIENTOS = [
     'X1R','X1L','X2R','X2L','X3R','X3L',
     'Y1U','Y1D','Y2U','Y2D','Y3U','Y3D',
@@ -446,14 +421,14 @@ def imprimir_cubo(cubo, titulo=""):
 def main():
     print("\n" + "="*60)
     print("  TALLER: BFS PARA EL CUBO RUBIK")
-    print("  Nomenclatura del taller: X/Y/Z")
+    print("  Nomenclatura: X/Y/Z")
     print("="*60)
 
     # 1. Estado resuelto (objetivo)
     cubo_objetivo = crear_cubo_resuelto()
     imprimir_cubo(cubo_objetivo, "Estado Objetivo — Cubo Resuelto (f)")
 
-    # 2. Mezcla con 3 movimientos usando nomenclatura del taller
+    # 2. Mezcla con 3 movimientos usando nomenclatura 
     mezcla = ['X1R', 'Y3D', 'Z1R']
     print(f"  Secuencia de mezcla aplicada: {' -> '.join(mezcla)}")
     inv_esperada = ' -> '.join(INVERSO[m] for m in reversed(mezcla))
