@@ -1,0 +1,3 @@
+mezcla = ['X1R', 'Y3D', 'Z1R']
+mezcla = ['X1L', 'Y1U', 'Z1L']
+mezcla = ['Z1R', 'Y1D', 'X3L']
