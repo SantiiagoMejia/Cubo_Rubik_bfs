@@ -336,7 +336,7 @@ def bfs_bidireccional(estado_inicial, estado_objetivo):
 
 
 # =============================================================================
-# SECCION 5: BFS SIMPLE (para comparacion en tabla del informe)
+# SECCION 5: BFS SIMPLE 
 # =============================================================================
 
 def bfs_simple(estado_inicial, limite_prof=4):
